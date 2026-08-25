@@ -5,10 +5,10 @@ from features.identity.user.models.infos import UserInfos
 
 class LoginManager:
     async def get_or_sync_user_by_firebase_uid(self, firebase_uid: str):
-        """
+    
         Récupère l'utilisateur dans PostgreSQL grâce à son UID Firebase
         lorsqu'il se connecte depuis l'application cliente.
-        """
+        
         statement = select(UserInfos).where(UserInfos.firebase_uid == firebase_uid)
         result = await self.db.execute(statement)
         user = result.scalars().first()
