@@ -1,10 +1,9 @@
-from contextlib import asynccontextmanager
+import sentry_sdk
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
-import sentry_sdk
 
-from app.api import register_routers, register_middlewares
-from app.core.config import settings  
+from app.api import register_middlewares, register_routers
+from app.core.config import settings
 
 # Initialisation de Sentry via les settings
 sentry_sdk.init(dsn=settings.SENTRY_DSN)
@@ -57,6 +56,7 @@ if __name__ == "__main__":
 # http://127.0.0.1:8000/openapi.json
 
 # taskkill /f /im python.exe
+
 
 
 
