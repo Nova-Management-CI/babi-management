@@ -1,28 +1,26 @@
-[project]
-name = "nova-school"
+[tool.poetry]
+name = "babi-management"
 version = "0.1.0"
 description = "Système de gestion scolaire SaaS multi-tenant"
-authors = [
-    {name = "AmanyA-ing", email = "angeobrou09710@gmail.com"}
-]
+authors = ["AmanyA-ing <angeobrou09710@gmail.com>"]
 readme = "README.md"
-requires-python = ">=3.11"
-dependencies = [
-    "fastapi (>=0.110.0,<1.0.0)",
-    "uvicorn[standard] (>=0.27.0,<1.0.0)",
-    "sqlmodel (>=0.0.14,<1.0.0)",
-    "sqlalchemy (>=2.0.25,<3.0.0)",
-    "psycopg2-binary (>=2.9.9,<3.0.0)",
-    "python-dotenv (>=1.0.0,<2.0.0)",
-    "alembic (>=1.13.1,<2.0.0)",
-    "sentry-sdk (>=2.0.0,<3.0.0)"
-]
+package-mode = false
+
+[tool.poetry.dependencies]
+python = ">=3.11"
+fastapi = ">=0.110.0,<1.0.0"
+uvicorn = { version = ">=0.27.0,<1.0.0", extras = ["standard"] }
+sqlmodel = ">=0.0.14,<1.0.0"
+sqlalchemy = ">=2.0.25,<3.0.0"
+psycopg2-binary = ">=2.9.9,<3.0.0"
+python-dotenv = ">=1.0.0,<2.0.0"
+alembic = ">=1.13.1,<2.0.0"
+sentry-sdk = ">=2.0.0,<3.0.0"
+pydantic-settings = ">=2.0.0,<3.0.0"
+
+[tool.poetry.group.dev.dependencies]
+ruff = ">=0.3.0,<1.0.0"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
-
-[dependency-groups]
-dev = [
-    "ruff (>=0.3.0,<1.0.0)"
-]
