@@ -26,8 +26,7 @@ RUN poetry install --no-interaction --no-ansi --no-root
 COPY . .
 
 # 9. Installation finale du projet lui-même
-RUN poetry install --no-interaction --no-ansi
-
+RUN poetry install --no-root --no-interaction --no-ansi
 # 10. Port ouvert par l'application
 EXPOSE 8000
 
