@@ -1,0 +1,30 @@
+# --- Python & Environnement ---
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+.env
+
+# --- Firebase & Credentials ---
+# Masque tous les fichiers JSON de configuration de service Firebase
+**/firebase/*.json
+*.json
+
+# --- Base de données & Migrations ---
+alembic/versions/__pycache__/
+*.db
+*.sqlite3
+
+docs/*.txt
+
+# --- Système & OS ---
+.DS_Store
+.idea/
+.vscode/
+
+# --- Logs & Tests ---
+logs/
+*.log
+.pytest_cache/
