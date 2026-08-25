@@ -5,7 +5,6 @@ description = "Système de gestion scolaire SaaS multi-tenant"
 authors = ["AmanyA-ing <angeobrou09710@gmail.com>"]
 readme = "README.md"
 package-mode = false
-
 [tool.poetry.dependencies]
 python = ">=3.11"
 fastapi = ">=0.110.0,<1.0.0"
@@ -17,6 +16,13 @@ python-dotenv = ">=1.0.0,<2.0.0"
 alembic = ">=1.13.1,<2.0.0"
 sentry-sdk = ">=2.0.0,<3.0.0"
 pydantic-settings = ">=2.0.0,<3.0.0"
+firebase-admin = ">=6.0.0,<7.0.0"
+celery = ">=5.3.0,<6.0.0"
+redis = ">=5.0.0,<6.0.0"
+python-barcode = ">=0.15.1,<1.0.0"
+qrcode = { version = ">=7.4.2,<8.0.0", extras = ["pil"] }
+pillow = ">=10.0.0,<11.0.0"
+starlette = ">=0.36.0,<1.0.0"
 
 [tool.poetry.group.dev.dependencies]
 ruff = ">=0.3.0,<1.0.0"
