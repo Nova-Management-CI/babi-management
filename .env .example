@@ -1,0 +1,55 @@
+# Application & Base de données
+SECRET_KEY=
+HOST=
+PORT=9000
+DEBUG=True
+DATABASE_URL=path
+
+
+# Emails
+MAIL_USERNAME=
+MAIL_PASSWORD=
+MAIL_FROM=
+MAIL_PORT=
+MAIL_SERVER=
+
+# Paiements 
+CINETPAY_SITE_ID=
+CINETPAY_API_KEY=
+
+STRIPE_SECRET_KEY=
+
+# Cloud
+CLOUDINARY_CLOUD_NAME=
+CLOUDINARY_API_KEY=
+CLOUDINARY_API_SECRET=
+
+# Notifications
+
+# 1. WhatsApp (Via Twilio, Meta Business API ou fournisseur tiers)
+WHATSAPP_API_URL=https://api.whatsapp.com/v1/...
+WHATSAPP_API_TOKEN=ton_token_whatsapp_ici
+
+# 2. Telegram (Bot Father)
+TELEGRAM_BOT_TOKEN=8867243155:AAHSXIgpdz7gkILE3Vm7RLW6VpWxYRzpUSc
+TELEGRAM_CHAT_ID=6613508213
+
+# --- Configuration SMS (Orange / Passarelle SMS) ---
+SMS_CLIENT_ID="ton_client_id_fourni_par_orange_developer"
+SMS_CLIENT_SECRET="ton_client_secret_fourni_par_orange_developer"
+SMS_SENDER_PHONE="+22500000000"  # Le numéro ou le nom d'expéditeur (Sender ID) validé par l'opérateur
+SMS_AUTH_HEADER="Basic ..."     # Si l'API utilise une clé d'authentification encodée
+   
+SMS_API_KEY=ta_cle_api_sms_ici
+SMS_API_URL=https://api.fournisseur-sms.com/v1
+SMS_SENDER_NAME=NovaSchool
+
+# 3. Firebase Cloud Messaging (FCM pour les notifications Push mobiles - Élèves/Parents)
+FIREBASE_CREDENTIALS_P=
+
+# Cache
+REDIS_URL=
+
+# --- Sentry ---
+SENTRY_DSN=
+
