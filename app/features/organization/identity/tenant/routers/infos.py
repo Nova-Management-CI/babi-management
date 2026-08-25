@@ -1,24 +1,26 @@
 from fastapi import APIRouter
 
-# --- Modèles et Schémas ---
-from ..schemas.infos  import(
-    OrgInfosUpdate,OrgInfosRead
-)
+from app.common import FEATURES, PREFIX, STATUS
+
 from ..models.infos import OrgInfos
-from app.common import PREFIX, TAGS, FEATURES, STATUS
 
-#=================TAG COMMON=================
-PREFIX=PREFIX.ORG_IDENTITY
-FEATURES=FEATURES.ORG_IDENTITY
-STATUS=STATUS.OK
+# --- Modèles et Schémas ---
+from ..schemas.infos import OrgInfosRead, OrgInfosUpdate
 
-#==================================AUTO ROUTERS (Gestion CRUD standard, /export et auto-gestion)=======================================
+# =================TAG COMMON=================
+PREFIX = PREFIX.ORG_IDENTITY
+FEATURES = FEATURES.ORG_IDENTITY
+STATUS = STATUS.OK
+
+# ============================AUTO ROUTERS ==================================
+
 
 def get_tenant_auto_router() -> APIRouter:
 
-    from app.toolbox import BaseCrud, AutoRouter
-    MODELE_SQL=BaseCrud(OrgInfos)
-    TAGS=["Tenant Infos"]
+    from app.toolbox import AutoRouter, BaseCrud
+
+    MODELE_SQL = BaseCrud(OrgInfos)
+    TAGS = ["Tenant Infos"]
 
     return AutoRouter(
         model_crud=MODELE_SQL,
@@ -29,6 +31,7 @@ def get_tenant_auto_router() -> APIRouter:
         required_feature=FEATURES,
         allow_export=True,
     ).router
+
 
 # =====================================================================
 # LISTE GROUPÉE POUR LE FICHIER ALL_ROUTERS

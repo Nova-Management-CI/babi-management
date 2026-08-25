@@ -1,17 +1,19 @@
 from fastapi import APIRouter
 
+from app.common import FEATURES, PREFIX, STATUS
+
 from ...user.models.infos import UserInfos
 from ..schemas.admin import ProfileAdminRead, ProfileAdminUpdate
-from app.common import PREFIX, TAGS, FEATURES, STATUS
 
-#=================TAG COMMON=================
-PREFIX=PREFIX.ACCOUNT_IDENTITY
-FEATURES=FEATURES.ACCOUNT_IDENTITY
-STATUS=STATUS.OK
+# =================TAG COMMON=================
+PREFIX = PREFIX.ACCOUNT_IDENTITY
+FEATURES = FEATURES.ACCOUNT_IDENTITY
+STATUS = STATUS.OK
+
 
 def get_admin_auth_auto_router() -> APIRouter:
-    from app.toolbox import BaseCrud, AutoRouter
-    
+    from app.toolbox import AutoRouter, BaseCrud
+
     TAGS = ["Identity-Admin"]
     MODELE_SQL = BaseCrud(UserInfos)
 

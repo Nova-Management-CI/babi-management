@@ -1,26 +1,29 @@
 from fastapi import APIRouter
 
+from app.common import FEATURES, PREFIX, STATUS
+
 from ..models.plan import OrgPlanSubscription
 from ..schemas.plan import (
     OrgPlanSubscriptionCreate,
     OrgPlanSubscriptionRead,
     OrgPlanSubscriptionUpdate,
 )
-from app.common import PREFIX, TAGS, FEATURES, STATUS
 
-#=================TAG COMMON=================
-PREFIX=PREFIX.ORG_SUBSCRIPTION
-FEATURES=FEATURES.ORG_SUBSCRIPTION
-STATUS=STATUS.OK
+# =================TAG COMMON=================
+PREFIX = PREFIX.ORG_SUBSCRIPTION
+FEATURES = FEATURES.ORG_SUBSCRIPTION
+STATUS = STATUS.OK
 
 # =====================================================================
 # 1. AUTO ROUTERS (Gestion CRUD standard, import/export et auto-gestion)
 # =====================================================================
 
+
 def get_subscription_plan_auto_router() -> APIRouter:
 
     from app.toolbox import AutoRouter, BaseCrud
-    TAGS=["Subscription Plans"]
+
+    TAGS = ["Subscription Plans"]
     MODELE_SQL = BaseCrud(OrgPlanSubscription)
 
     return AutoRouter(
@@ -36,6 +39,4 @@ def get_subscription_plan_auto_router() -> APIRouter:
     ).router
 
 
-subscription_plan_routers = [
-    get_subscription_plan_auto_router
-]
+subscription_plan_routers = [get_subscription_plan_auto_router]

@@ -1,18 +1,20 @@
 from fastapi import APIRouter
 
+from app.common import FEATURES, PREFIX, STATUS
+
 from ..models.infos import UserInfos
-
 from ..schemas.infos import ProfileInfosRead, ProfileInfosUpdate
-from app.common import PREFIX, TAGS, FEATURES, STATUS
 
-#=================TAG COMMON=================
-PREFIX=PREFIX.ACCOUNT_IDENTITY
-FEATURES=FEATURES.ACCOUNT_IDENTITY
-STATUS=STATUS.OK
+# =================TAG COMMON=================
+PREFIX = PREFIX.ACCOUNT_IDENTITY
+FEATURES = FEATURES.ACCOUNT_IDENTITY
+STATUS = STATUS.OK
+
 
 def get_infos_auto_router() -> APIRouter:
-    from app.toolbox import BaseCrud, AutoRouter
-    TAGS=["Identity-User"]
+    from app.toolbox import AutoRouter, BaseCrud
+
+    TAGS = ["Identity-User"]
     MODELE_SQL = BaseCrud(UserInfos)
 
     return AutoRouter(
@@ -33,9 +35,4 @@ def get_infos_auto_router() -> APIRouter:
 
 identity_user_routers = [
     get_infos_auto_router,
-    
 ]
-
-
-
-

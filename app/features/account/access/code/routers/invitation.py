@@ -1,24 +1,25 @@
 from fastapi import APIRouter
 
-from ..models.invitation import InvitationCode
-from ..schemas.invitation import(
-     InvitationCodeRead
-)
-from app.common import PREFIX, TAGS, FEATURES, STATUS
+from app.common import FEATURES, PREFIX, STATUS
 
-#=================TAG COMMON=================
-PREFIX=PREFIX.ACCOUNT_ACCESS
-FEATURES=FEATURES.ACCOUNT_ACCESS
-STATUS=STATUS.OK
+from ..models.invitation import InvitationCode
+from ..schemas.invitation import InvitationCodeRead
+
+# =================TAG COMMON=================
+PREFIX = PREFIX.ACCOUNT_ACCESS
+FEATURES = FEATURES.ACCOUNT_ACCESS
+STATUS = STATUS.OK
 
 # =====================================================================
 # 1. AUTO ROUTERS (Gestion CRUD standard, import/export et auto-gestion)
 # =====================================================================
 
+
 def get_invitation_auto_router() -> APIRouter:
-    from app.toolbox import BaseCrud, AutoRouter
-    MODELE_SQL=BaseCrud(InvitationCode)
-    TAGS=["INVITATION"]
+    from app.toolbox import AutoRouter, BaseCrud
+
+    MODELE_SQL = BaseCrud(InvitationCode)
+    TAGS = ["INVITATION"]
     autorouter = AutoRouter(
         model_crud=MODELE_SQL,
         schema_read=InvitationCodeRead,
@@ -26,7 +27,7 @@ def get_invitation_auto_router() -> APIRouter:
         tags=TAGS,
         unique_fields=["code"],
         required_feature=FEATURES,
-        allow_export=True
+        allow_export=True,
     )
     return autorouter.router
 

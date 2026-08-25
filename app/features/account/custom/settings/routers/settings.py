@@ -1,17 +1,19 @@
 from fastapi import APIRouter
-from app.toolbox import BaseCrud, AutoRouter
+
+from app.common import FEATURES, PREFIX, STATUS
+from app.toolbox import AutoRouter, BaseCrud
+
 from ..models.settings import UserSetting
 from ..schemas.settings import UserSettingRead, UserSettingUpdate
-from app.common import PREFIX, TAGS, FEATURES, STATUS
 
-#=================TAG COMMON=================
-PREFIX=PREFIX.ACCOUNT_CUSTOM
-FEATURES=FEATURES.ACCOUNT_CUSTOM
-STATUS=STATUS.OK
+# =================TAG COMMON=================
+PREFIX = PREFIX.ACCOUNT_CUSTOM
+FEATURES = FEATURES.ACCOUNT_CUSTOM
+STATUS = STATUS.OK
 
 
 def user_settings_auto_router() -> APIRouter:
-    TAGS=["User-Settings"]
+    TAGS = ["User-Settings"]
 
     return AutoRouter(
         model_crud=BaseCrud(UserSetting),
@@ -19,7 +21,7 @@ def user_settings_auto_router() -> APIRouter:
         schema_update=UserSettingUpdate,
         prefix=f"{PREFIX}/settings",
         tags=TAGS,
-        allow_me=True,  # Permet d'accéder/modifier directement ses propres paramètres de sécurité (/me)
+        allow_me=True,
         required_feature=FEATURES,
     ).router
 

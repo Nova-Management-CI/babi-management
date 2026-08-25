@@ -1,14 +1,16 @@
 from fastapi import APIRouter
 
+from app.common import FEATURES, PREFIX, STATUS
+
 from ..models.theme import OrgTheme
 from ..schemas.theme import OrgThemeRead, OrgThemeUpdate
-from app.common import PREFIX, TAGS, FEATURES, STATUS
 
-#=================TAG COMMON=================
-TAGS=["Org Themes"]
-PREFIX=PREFIX.ORG_CUSTOM
-FEATURES=FEATURES.ORG_CUSTOM
-STATUS=STATUS.OK
+# =================TAG COMMON=================
+TAGS = ["Org Themes"]
+PREFIX = PREFIX.ORG_CUSTOM
+FEATURES = FEATURES.ORG_CUSTOM
+STATUS = STATUS.OK
+
 
 #  Thèmes d'customanisations (AutoRouter)
 def get_theme_auto_router() -> APIRouter:
