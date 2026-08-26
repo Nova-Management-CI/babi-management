@@ -743,14 +743,14 @@ standard-no-fastapi-cloud-cli = ["email-validator (>=2.0.0)", "fastapi-cli[stand
 
 [[package]]
 name = "fastapi-mail"
-version = "1.5.2"
+version = "1.4.2"
 description = "Simple lightweight mail library for FastApi"
 optional = false
 python-versions = "<4.0,>=3.8.1"
 groups = ["main"]
 files = [
-    {file = "fastapi_mail-1.5.2-py3-none-any.whl", hash = "sha256:158ecf49075430cb6a5483f557a8f45b987e31f2105a77b3239933b0bacb03e5"},
-    {file = "fastapi_mail-1.5.2.tar.gz", hash = "sha256:c83b96f1a030db754e83c64d8687b62b3d4f847d25b5adb00f30d5765ff9825a"},
+    {file = "fastapi_mail-1.4.2-py3-none-any.whl", hash = "sha256:3525cf342ff91f6bcb3298570d1783498082e586957f668ee4164a0aab6ec743"},
+    {file = "fastapi_mail-1.4.2.tar.gz", hash = "sha256:04bde1005c624f42dfc0a9c1e313fcc544499fdd6b3531e606c500d80ac2ffcb"},
 ]
 
 [package.dependencies]
@@ -3054,4 +3054,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.11"
-content-hash = "1dcb6048bdc58d742b4df264556e58d6aba4fd4e998e794cd22ff5806aa4d92c"
+content-hash = "4decedf9573273a24db7d60d7c5cdccf97b4a210b0822a3249791320c30be517"
