@@ -1,12 +1,22 @@
+import os
+import json
+from pathlib import Path
 import firebase_admin
 from firebase_admin import credentials, auth
-from pathlib import Path
-
-# Chemin vers ton fichier JSON de clé privée
-cred_path = Path(__file__).resolve().parent / "firebase-service-account.json"
 
 if not firebase_admin._apps:
-    cred = credentials.Certificate(str(cred_path))
+    # 1. Vérifier si la variable d'environnement Render existe (pour la production)
+    firebase_json_str = os.getenv("FIREBASE_CREDENTIALS_JSON")
+    
+    if firebase_json_str:
+        # Charger les credentials à partir du texte JSON de l'environnement
+        cred_dict = json.loads(firebase_json_str)
+        cred = credentials.Certificate(cred_dict)
+    else:
+        # 2. Sinon, utiliser le fichier physique (pour le développement local)
+        cred_path = Path(__file__).resolve().parent / "firebase-service-account.json"
+        cred = credentials.Certificate(str(cred_path))
+        
     firebase_admin.initialize_app(cred)
 
 def verify_firebase_token(id_token: str):
