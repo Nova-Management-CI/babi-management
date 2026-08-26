@@ -558,6 +558,26 @@ prompt-toolkit = ">=3.0.36"
 testing = ["pytest (>=7.2.1)", "pytest-cov (>=4.0.0)", "tox (>=4.4.3)"]
 
 [[package]]
+name = "cloudinary"
+version = "1.46.0"
+description = "Python and Django SDK for Cloudinary"
+optional = false
+python-versions = "*"
+groups = ["main"]
+files = [
+    {file = "cloudinary-1.46.0-py3-none-any.whl", hash = "sha256:a8ac2d39b35c20e526c7a1e4eb63e13bcdf5b224736ae56a9bcc236faadb95e8"},
+    {file = "cloudinary-1.46.0.tar.gz", hash = "sha256:f33ad786277748649d235b3d00f3afe058931f7bd1f516ccc89756f48802135a"},
+]
+
+[package.dependencies]
+certifi = "*"
+six = "*"
+urllib3 = ">=1.26.5"
+
+[package.extras]
+dev = ["pytest (==4.6) ; python_version < \"3.7\"", "pytest ; python_version >= \"3.7\"", "tox"]
+
+[[package]]
 name = "colorama"
 version = "0.4.6"
 description = "Cross-platform colored terminal text."
@@ -2934,4 +2954,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.11"
-content-hash = "ffe55c830e24356acf6d337e2a8f0c7f2744b86190959795a432efbf1410a86d"
+content-hash = "d914c9f70d1c62932b4acecd3bcb15a05ddc32481bf44c084a870fbb2b74ba41"
